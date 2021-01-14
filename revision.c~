@@ -1,0 +1,122 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct Node{
+	int size;
+	int f,r;
+	int *arr;
+};
+
+void show(struct Node *ptr){
+	int i;
+	for(i=(ptr->f+1)%ptr->size;i!=ptr->r;i++){
+		printf(" %d ",ptr->arr[i]);
+	}printf("\n");
+
+}
+
+
+
+void enqueue(struct Node *ptr,int data){
+	if(ptr->r==ptr->size-1 && ptr->f==-1){
+		printf("queue overfow");
+	
+	}else if((ptr->r+1)%ptr->size==ptr->f){
+		printf("queue overflow");
+	
+	}else{
+		ptr->r = (ptr->r+1)%ptr->size;
+		ptr->arr[ptr->r] = data;
+	}	
+
+}
+
+void dequeue(struct Node *ptr){
+	if(ptr->f==ptr->r){
+		printf("queue underflow");
+	}else{
+		ptr->f = (ptr->f+1)%ptr->size;
+	
+	}
+}
+
+int main(){
+	struct Node head;
+	printf("this is a c programme")
+	head.f = -1;
+	head.r = -1;
+	head.size = 10;
+	head.arr = (int *)malloc(head.size*sizeof(int));
+
+
+	show(&head);
+	enqueue(&head,12);
+	enqueue(&head,22);
+	enqueue(&head,32);
+	enqueue(&head,42);
+	
+	show(&head);
+
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
